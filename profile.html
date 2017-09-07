@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Profile</title>
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/profile.css">
+  <link rel="stylesheet" href="src/css/blueimp-gallery.min.css">
+  <!--TITLE FONT  --><script src="https://use.edgefonts.net/permanent-marker.js"></script>
+
+</head>
+<body>
+
+  <nav class="container-fluid my-nav">
+    <a class="logo" href="./index.html">SKILL SWAP</a>
+  </nav>
+  <div class="top">
+    <div class="row">
+      <h2 class="col-md-offset-2 col-md-8 userName"></h2>
+      <div class="col-md-offset-2 col-md-8 profile-top">
+        <!-- <h4 class="message-text">傳個訊息開始交換吧</h4>
+        <div class="icon-border message">
+          <img src="img/icon1.svg" alt="message me" width="35px">
+        </div> -->
+        <img src="img/noUser.png" class="photo img-circle" alt="profile-photo" width="200px">
+        <div class="icon-border commented"  data-toggle="modal" data-target="#myModal">
+          <img src="img/icon2.svg" alt="what did swaper say to me" width="35px">
+        </div>
+        <h4 class="commented-text">跟我交換的人怎麼說</h4>
+      </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">FeedBack</h4>
+          </div>
+          <div class="modal-body">
+            <h4>用＿＿跟我交換＿＿的曾小姐說：</h4><br>
+            I LOVE YOU
+            <hr>
+            <h4>用＿＿跟我交換＿＿的李先生說：</h4><br>
+            WTF
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="firstLogin" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4>填填你的基本資料吧</h4>
+          </div>
+          <form id="infoForm">
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="yourName">你的大名</label><label style="color:red">*</label>
+                <input type="text" class="form-control" required="required" id="yourName">
+              </div>
+              <div class="form-group">
+                <label for="yourPhoto">你的美照</label>
+                <input type="file" name="file" id="yourPhoto">
+              </div>
+              <!-- <img src="" alt="" width="200px" height="200px"> -->
+              <div class="form-group">
+                <label for="youCanChange">你可以交換的技能</label><label style="color:red">*</label>
+                <input type="text" class="form-control" required="required" id="youCanChange">
+              </div>
+              <div class="form-group">
+                <label for="youWantLearn">你想要學習的技能</label><label style="color:red">*</label>
+                <input type="text" class="form-control" required="required" id="youWantLearn">
+              </div>
+              <div class="form-group">
+                <label for="aboutYou">個人簡介</label><label style="color:red">*</label>
+                <textarea class="form-control" rows="5" required="required" id="aboutYou"></textarea>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <input type="submit" value="儲存" class="btn btn-default info-submit">
+            </div>
+          <form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="mid row col-md-12 col-sm-12 col-xs-12">
+    <div class="mid-left-btn">
+      <h3>作品集</h3>
+    </div>
+    <div class="mid-right-btn">
+      <h3>個人簡介</h3>
+    </div>
+    <div class="mid-left col-md-12 col-sm-12 col-xs-12">
+      <div id="blueimp-gallery" class="blueimp-gallery">
+        <div class="slides"></div>
+        <h3 class="title"></h3>
+        <a class="prev">‹</a>
+        <a class="next">›</a>
+        <a class="close">×</a>
+        <a class="play-pause"></a>
+        <ol class="indicator"></ol>
+      </div>
+      <div id="links">
+        <a id = "ref1" href="https://firebasestorage.googleapis.com/v0/b/sna-final.appspot.com/o/userImage%2FoPKpt4KkAXMo6eHXm0XQtE2KAo32%2Fdefault.jpg?alt=media&token=8feaa865-dc3a-4a4d-a80e-40891331af9b">
+        <img id = "img1" src="https://firebasestorage.googleapis.com/v0/b/sna-final.appspot.com/o/userImage%2FoPKpt4KkAXMo6eHXm0XQtE2KAo32%2Fdefault.jpg?alt=media&token=8feaa865-dc3a-4a4d-a80e-40891331af9b" style="width:33%">
+      </a>
+        <a id = "ref2" href="https://firebasestorage.googleapis.com/v0/b/sna-final.appspot.com/o/userImage%2FoPKpt4KkAXMo6eHXm0XQtE2KAo32%2Fdefault.jpg?alt=media&token=8feaa865-dc3a-4a4d-a80e-40891331af9b">
+        <img id = "img2" src="https://firebasestorage.googleapis.com/v0/b/sna-final.appspot.com/o/userImage%2FoPKpt4KkAXMo6eHXm0XQtE2KAo32%2Fdefault.jpg?alt=media&token=8feaa865-dc3a-4a4d-a80e-40891331af9b" style="width:33%">
+      </a>
+        <a id = "ref3" href="https://firebasestorage.googleapis.com/v0/b/sna-final.appspot.com/o/userImage%2FoPKpt4KkAXMo6eHXm0XQtE2KAo32%2Fdefault.jpg?alt=media&token=8feaa865-dc3a-4a4d-a80e-40891331af9b">
+        <img id = "img3" src="https://firebasestorage.googleapis.com/v0/b/sna-final.appspot.com/o/userImage%2FoPKpt4KkAXMo6eHXm0XQtE2KAo32%2Fdefault.jpg?alt=media&token=8feaa865-dc3a-4a4d-a80e-40891331af9b" style="width:33%">
+      </a>
+      </div>
+      <!-- <div id="imageContainer" style='width: 50%; height: 50% object-fit:contain'></div> -->
+      <div class="mid-right-content">
+        <!-- <div id=message></div> -->
+        <!--<input class="uploadb" type="file" accept="video/*" />
+        <video controls autoplay></video>-->
+        <input class="choosefile" type="file" name="file" id="file">
+        <button class="surepost btn btn-default" type="button" id="surepost">確定上傳</button>
+        <button class="btn btn-primary morevideo">更多作品..</button>
+      </div>
+      <h2 class="text-right feature">作品集</h2>
+    </div>
+
+
+    <div class="mid-right col-md-12 col-sm-12 col-xs-12">
+      <h2 class="text-left personal">個人簡介</h2>
+      <p class="mid-left-content">
+      </p>
+    </div>
+  </div>
+
+    <div class="i-can-change col-md-12 col-sm-12 col-xs-12">
+      <div class="i-want-title col-md-6 col-sm-6 col-xs-12">
+        <span class="glyphicon glyphicon-transfer" aria-hidden="true"></span>
+        <h4>我可以交換</h4>
+      </div>
+      <div class="i-want-content change-content col-md-6 col-sm-6 col-xs-12">
+
+      </div>
+    </div>
+    <div class="i-want-learn col-md-12 col-sm-12 col-xs-12">
+      <div class="i-want-content learn-content col-md-6 col-sm-6 col-xs-12">
+
+      </div>
+      <div class="i-want-title col-md-6 col-sm-6 col-xs-12">
+        <span class="glyphicon glyphicon-education" aria-hidden="true"></span>
+        <h4>我想要學習</h4>
+      </div>
+    </div>
+
+  <h2 class="swap-record text-center col-md-12">交換紀錄</h2>
+  <div class="col-md-offset-1 col-md-10 bottom">
+    <div class="right-content">
+      <nav class="nav navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+              <li><a data-toggle="tab" href="#home">已交換</a></li>
+              <li><a data-toggle="tab" href="#menu1">交換中</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="tab-content">
+        <div id="home" class="tab-pane fade in active">
+          <div style="border:none;" class="frame record" name="target">
+            <!-- <div class="record-box">
+              <h4>title</h4>
+              <div class="skill-box"><p>可交換：{{a.change}}</p></div>
+              <div class="skill-box"><p>欲學習：{{a.learn}}</p></div>
+            </div> -->
+          </div>
+        </div>
+        <div id="menu1" class="tab-pane fade">
+          <div style="border:none;" class="frame endRecord" name="target">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://www.gstatic.com/firebasejs/4.1.1/firebase.js"></script>
+  <script src="src/js/jquery-3.2.1.min.js"></script>
+  <script src="src/jquery-ui/jquery-ui.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+  <script src="js/profile.js"></script>
+  <script src="src/js/blueimp-gallery.min.js"></script>
+  <script>
+    document.getElementById('links').onclick = function(event) {
+      event = event || window.event;
+      var target = event.target || event.srcElement,
+        link = target.src ? target.parentNode : target,
+        options = {
+          index: link,
+          event: event
+        },
+        links = this.getElementsByTagName('a');
+      blueimp.Gallery(links, options);
+    };
+  </script>
+</body>
+
+
+</html>

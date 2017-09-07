@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>skill search</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/skillSearch.css">
+
+    <!--TITLE FONT  --><script src="https://use.edgefonts.net/permanent-marker.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- articles published modal -->
+      <div class="modal fade" id="publishArticle" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4>你想換啥呢</h4>
+            </div>
+            <form id="articleForm" @submit="articleSubmit">
+              <div class="modal-body">
+                <div class="form-group">
+                  <label for="title" class="col-sm-3 control-label">來個標題吧</label><label style="color:red">*</label>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" required="required" name="title" id="title">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="change" class="col-sm-3 control-label">你可交換？</label><label style="color:red">*</label>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" required="required" name="change" id="change">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="learn" class="col-sm-3 control-label">你想學習？</label><label style="color:red">*</label>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" required="required" name="learn" id="learn">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="articleContent" class="col-sm-3 control-label">簡述一下你的交換</label>
+                  <textarea name="articleContent" rows="8" class="form-control" required="required" id="articleContent"></textarea>
+                </div>
+                <input type="text" id="aid" style="display:none">
+              </div>
+              <div class="modal-footer">
+                <input type="submit" value="發布" class="btn btn-default">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="editArticle" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4>你想換啥呢</h4>
+            </div>
+            <form id="editForm" @submit="editSubmit">
+              <div class="modal-body">
+                <div class="form-group">
+                  <label for="title" class="col-sm-3 control-label">來個標題吧</label><label style="color:red">*</label>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" required="required" name="title" id="edittitle">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="change" class="col-sm-3 control-label">你可交換？</label><label style="color:red">*</label>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" required="required" name="change" id="editchange">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="learn" class="col-sm-3 control-label">你想學習？</label><label style="color:red">*</label>
+                  <div class="col-sm-8">
+                    <input type="text" class="form-control" required="required" name="learn" id="editlearn">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="articleContent" class="col-sm-3 control-label">簡述一下你的交換</label>
+                  <textarea name="articleContent" rows="8" class="form-control" required="required" id="editarticleContent"></textarea>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <input type="submit" value="編輯" class="btn btn-default">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- NAV BAR -->
+      <nav class="container my-nav">
+        <a class="logo" href="./index.html">SKILL SWAP</a>
+        <div class="pull-left tabs">
+          <span class="glyphicon glyphicon-th-list" style="cursor:pointer;" @click="control.tab = 'all' ">顯示全部 </span>
+          <span class="glyphicon glyphicon-star"    style="cursor:pointer;" @click="control.tab = 'star'">我的最愛</span>
+        </div>
+
+        <div class="pull-right">
+          <!-- <span class="glyphicon glyphicon-time">依時間</span> -->
+          <!-- <span class="glyphicon glyphicon-wrench">依類別</span> -->
+          <input class="filter" type="text"  placeholder="搜尋" v-model="control.filter">
+        </div>
+      </nav>
+
+      <div class="container btn-con">
+        <button type="button" class="btn btn-primary col-md-12 articlePublished" @click="articleModal">誰來跟我換</button>
+      </div>
+      <!-- main content -->
+      <main class="container">
+        <div class="items col-md-12 row">
+          <article class="item" v-for="a in current_skill_list">
+            <header>
+              <h1>{{a.title}}</h1>
+              <p>{{a.time}}</p><p>{{a.area}}</p>
+              <a @click="queryUrl(a.uid)" style="cursor:pointer" >{{a.author}}</a>
+              <div class="animation-swipe star" @click="toggle_like(a.aid)" :class="favorite_list[a.aid] ? 'favorite' : ''">
+                <span class="glyphicon glyphicon-star" >加入最愛</span>
+              </div>
+            </header>
+            <div class="item-content">
+              <div class="skill-box"><p>可交換：{{a.change}}</p></div>
+              <div class="skill-box"><p>欲學習：{{a.learn}}</p></div>
+              <div class="item-detail">
+                <p>詳細內容：</p>
+                <p v-html="a.content"></p>
+                <!-- <textarea v-model="a.detail"></textrea> -->
+              </div>
+              <button type="button" class="btn btn-default edit-btn" :class="currentUser.uid==a.uid ? '' : 'btn-disappear'" @click="edit_article(a)">編輯貼文</button>
+              <button type="button" class="btn bnt-primary change-btn" data-toggle="modal" data-target="#changeModal">我想交換</button>
+              <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" id="changeModal">
+                <div class="modal-dialog modal-sm" role="document">
+                  <div class="modal-content">
+                    <h4 class="text-center">確定要交換此技能？</h4>
+                    <button type="button" class="btn btn-primary" style="margin-left:40%; margin-bottom:10px;" name="button" @click="sendMessage(a.title,a.author,a.uid,a.aid)">交換</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- <div class="suggests col-md-4">
+          <button type="button" class="btn btn-primary col-md-12 articlePublished" @click="articleModal">誰來跟我換</button>
+          <h3>推薦技能</h3>
+          <article class="item suggestion" v-for="a in suggest_list">
+            <header>
+              <h1>{{a.title}}</h1>
+              <p>{{a.time}}</p><p>{{a.area}}</p>
+              <div class="animation-swipe star">
+                <span class="glyphicon glyphicon-star">加入最愛</span>
+              </div>
+            </header>
+            <div class="item-content">
+              <div class="skill-box"><p>可交換：{{a.change}}</p></div>
+              <div class="skill-box"><p>欲學習：{{a.learn}}</p></div>
+              <div class="item-detail">
+                <p>詳細內容：</p>
+                <p v-html="a.content"></p>
+                <textarea v-model="a.detail"></textrea>
+              </div>
+            </div>
+          </article>
+        </div> -->
+      </main>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/4.1.1/firebase.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.6/vue.js"></script>
+    <script src="js/skillSearch.js"></script>
+  </body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/skillSearch.css">
+  </head>
+  <body>
+    <div id="app">
+      <main class="container">
+        <div class="items col-md-8 row">
+          <article class="item" v-for="a in skill_list">
+            <header>
+              <h1>{{a.title}}</h1>
+              <p>{{a.time}}</p><p>{{a.area}}</p>
+              <div class="animation-swipe star">
+                <span class="glyphicon glyphicon-star">加入最愛</span>
+              </div>
+            </header>
+            <div class="item-content">
+              <div class="skill-box"><p>可交換：{{a.changeSkill}}</p></div>
+              <div class="skill-box"><p>欲學習：{{a.getSkill}}</p></div>
+              <div class="item-detail">
+                <p>詳細內容：</p>
+                <p v-html="a.detail"></p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </main>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.6/vue.js"></script>
+    <script>
+      var app = new Vue({
+        el :'#app',
+        data :{
+          skill_list :[
+            {
+              title :'吉他想換語言',
+              time :'2017-5-22 17:27:50',
+              area :'Taipei City Wenshan District',
+              changeSkill :'吉他',
+              getSkill :'任何英文外的第二外語',
+              detail :`日文韓文泰文越文德文西班牙文記敘文抒情文論說文議論文八股文<br>
+              日文韓文泰文越文德文西班牙文記敘文抒情文論說文議論文八股文<br>
+              日文韓文泰文越文德文西班牙文記敘文抒情文論說文議論文八股文<br>
+              日文韓文泰文越文德文西班牙文記敘文抒情文論說文議論文八股文`
+            },
+            {
+              title :'貝斯男孩想認識滑板女孩',
+              time :'2017-5-22 21:37:23',
+              area :'Taipei City Wenshan District',
+              changeSkill :'貝斯',
+              getSkill :'想學滑板（限女）',
+              detail :`我想認識滑板妹子<br>
+              我想認識滑板妹子<br>
+              我想認識滑板妹子<br>
+              我想認識滑板妹子<br>
+              我想認識滑板妹子`
+            }
+          ],
+          suggest_list :[
+            {
+              title :'我會雜耍 想學鋼琴',
+              time :'2017-4-29 13-20-15',
+              area :'Taipei City Wenshan District',
+              changeSkill :'中國傳統雜耍',
+              getSkill :'彈琴不談情',
+              detail :`我是來學琴的 不是來把咩的<br>
+              我是來學琴的 不是來把咩的<br>
+              我是來學琴的 不是來把咩的<br>
+              我是來學琴的 不是來把咩的`,
+            }
+          ]
+        },
+        computed :{
+        }
+      })
+    </script>
+  </body>
+</html>

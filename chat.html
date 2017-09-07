@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>聊天室</title>
+  <meta name="description" content="Flexbox">
+  <meta name="author" content="Andrew Fedyk">
+
+  <link rel="stylesheet" href="css/chat.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+  <!--TITLE FONT  --><script src="https://use.edgefonts.net/permanent-marker.js"></script>
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body class="flex-container">
+  <header class="flex-container">
+    <a href="./index.html" class="col-2 logo">SKILL SWAP</a>
+
+    <div class="col-3 navbar">
+      <div class="navbar__icon-menu">
+        <a href class="navbar__icon navbar__icon_friends"></a>
+        <a href class="navbar__icon navbar__icon_messages"></a>
+        <a href class="navbar__icon navbar__icon_notifications"></a>
+      </div>
+
+      <!-- <a href class="navbar__logo-menu"> -->
+        <!-- <img src="//d13yacurqjgara.cloudfront.net/users/36590/avatars/small/d7292a72a0df05d939b9a28355639714.png?1442256720" /> -->
+      <!-- </a> -->
+    </div>
+  </header><!-- /header -->
+
+  <main class="flex-container">
+
+
+
+
+    <div class="col-2 latest-messages">
+      <!-- /.list-header -->
+      <div class="latest-messages-list">
+        <div class="recent-friends">
+
+
+        </div>
+      </div>
+      <!-- /.friends-list -->
+    </div><!-- /.col-2 -->
+
+    <div class="col-3 messenger">
+      <div class="messenger__header">
+        <div class="messenger__user">
+          <img src="//external-waw1-1.xx.fbcdn.net/safe_image.php?d=AQAWV9R5DH1DV4Xn&w=160&h=160&url=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F1%2F16%2FJenniferAnistonHWoFFeb2012.jpg%2F720px-JenniferAnistonHWoFFeb2012.jpg&cfs=1&f&fallback=hub_person" alt="Jennifer Aniston">
+          <span class="messenger__user-name"></span>
+        </div>
+        <div class="messenger__actions">
+
+        </div>
+      </div>
+      <!-- /.messenger-header -->
+
+      <div class="messenger__list">
+
+
+      </div>
+      <!-- /.messenger-list -->
+
+      <div class="messanger__form">
+        <div class="messanger__input">
+          <form action="" method="">
+            <input id="send_input" type="text" placeholder="Write something" autofocus>
+          </form>
+        </div>
+
+
+        <div>
+          <button id="send_bt">send</button>
+        </div>
+
+        <div>
+       <!--  <div class="messanger__form-actions">
+          <a href><i class="ion-happy-outline"></i></a>
+          <a href><i class="ion-paperclip"></i></a>
+        </div> -->
+      </div>
+      <!-- /.messenger-form -->
+    </div><!-- /.col-3 -->
+
+  </main>
+
+
+  <script src="https://www.gstatic.com/firebasejs/4.1.1/firebase.js"></script>
+  <!--JQUERY      --><script src="./src/js/jquery-3.2.1.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="js/chat.js"></script>
+</body>
+</html>
