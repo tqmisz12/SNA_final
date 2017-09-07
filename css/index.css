@@ -1,0 +1,248 @@
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+
+  -webkit-transition: 0.3s ease-in-out;
+     -moz-transition: 0.3s ease-in-out;
+          transition: 0.3s ease-in-out;
+}
+
+@media screen and (max-width: 767px) {
+  .sidenav {
+    height: auto;
+    padding: 15px;
+  }
+  .row.content {
+    height: auto;
+  }
+}
+
+.row.content {
+  height: 450px
+}
+
+.navbar {
+  margin-bottom: 0;
+  border-radius: 0;
+  background: linear-gradient(to bottom, #426184 0%,#364f6b 100%);
+}
+.navbar-inverse{
+  height: 54px;
+  background: linear-gradient(to bottom, #426184 0%,#364f6b 100%);
+}
+.sidenav {
+  padding-top: 20px;
+  background-color: #f1f1f1;
+  height: 100%;
+}
+
+footer {
+  color: white;
+  height: 100px;
+  padding: 30px;
+}
+/*================================NAV BAR=====================================*/
+.navbar-inverse .navbar-brand{
+  font-family: permanent-marker, sans-serif;
+  font-size: 36px;
+  color: white;
+}
+.navbar-inverse .navbar-brand:hover{
+  color: #3fcec9;
+}
+.navbar-inverse .navbar-nav li > a{
+  font-size: 15px;
+  color: white;
+}
+.navbar-inverse .navbar-nav li > a:hover{
+  color: #3fcec9;
+
+}
+.userImg{
+  margin-top: 4px;
+}
+.featureImage{
+    width: auto;
+    width: 500px;
+}
+.skills{
+  font-family: permanent-marker, sans-serif;
+}
+/*================================BIG IMG=====================================*/
+.item{
+  position: relative;
+  height: 620px;
+  overflow: hidden;
+}
+.item img{
+  /*margin: auto;*/
+}
+.text-center{
+  padding: 0;
+}
+.adjustIntro{
+    float:left;
+    height:50%; /*父元素高度的50%*/
+    margin-bottom:-150px;/*置中元素高度的一半*/
+}
+.adjust{
+    float:left;
+    height:50%;
+    margin-bottom:-225px;
+}
+.feature{
+    margin-bottom: 50px;
+}
+.featuresText{
+    margin-bottom: 30px;
+}
+
+hr{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-top: 1px solid #A0A0A0;
+    width: 90%;
+}
+
+.mynewclassclose {
+    position: absolute;
+    margin: 0;
+    top: -23px; /* half height of "X" image, just for nice placing*/
+    right: -23px; /* half width of "X" image, just for nice placing*/
+    opacity: 0.9;
+}
+
+.mynewclassclose:hover {
+    opacity: 1;
+}
+
+/*================================Modal=====================================*/
+.modal-dialog{
+  width: 1000px;
+}
+.modal-content{
+  height: 70%;
+}
+
+.profileBut{
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.searchBut{
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.chatBut{
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.unlogButton{
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.modalBackground{
+    background: -webkit-linear-gradient(to bottom right, #426184 0%,#364f6b 100%);
+    background:    -moz-linear-gradient(to bottom right, #426184 0%,#364f6b 100%);
+    background:         linear-gradient(to bottom right, #426184 0%,#364f6b 100%);
+}
+
+#fbicon{
+  height : auto;
+  height : 100px;
+}
+/*================================Modal Divide Part=====================================*/
+
+.div3Part{
+  width: 33.3%;
+  padding: 1px;
+  /*display: inline-block;*/
+}
+
+.div2Part{
+  width: 50%;
+  padding: 1px;
+}
+
+.div1Part{
+  width: 83%;
+  padding: 1px;
+}
+.modal_content{
+  margin: 0;
+}
+
+.modal_prof{
+  height:440px;
+  width: 100%;
+  position: relative;
+  border:1px solid;
+}
+
+.modal_prof{
+    -webkit-transition: all .2s ease; /* Safari and Chrome */
+  	-moz-transition: all .2s ease; /* Firefox */
+  	-o-transition: all .2s ease; /* IE 9 */
+  	-ms-transition: all .2s ease; /* Opera */
+  	transition: all .2s ease;
+}
+
+.modal_prof:hover{
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-transform:scale(1.25); /* Safari and Chrome */
+      -moz-transform:scale(1.25); /* Firefox */
+      -ms-transform:scale(1.25); /* IE 9 */
+      -o-transform:scale(1.25); /* Opera */
+     transform:scale(1.25);
+     z-index: 1;
+}
+
+.description_text{
+  font-family: Microsoft JhengHei;
+  font-size:18px;
+  color: #292F33;
+  margin: 15px 0;
+}
+
+/*================================Footer BAR=====================================*/
+.lastlayer{
+  background: #3e4249;
+  padding: 25px;
+  color: white;
+}
+
+.skills{
+  font-family: permanent-marker, sans-serif;
+}
+
+.skills:hover{
+  color:#3FC9CE;
+  cursor: pointer;
+}
+
+#mailicon{
+  height : auto;
+  height : 16px;
+}
+
+.footer{
+  border-top: 1px solid #e0e0e0;
+  background: #3e4249;
+  color: white;
+}
+
+.foot_text{
+  text-align: center;
+  font-family: permanent-marker, sans-serif;
+  font-size: 20px;
+  color: white;
+  margin-Left: 30px;
+}
